@@ -156,8 +156,9 @@ public class AwsClientProviderImpl implements AwsClientProvider {
 
     private void handleBaseEndpointOverride(S3BaseClientBuilder<?, ?> builder) {
         var endpointOverride = configuration.getEndpointOverride();
+        var pathStyleAccessEnabled = configuration.getPathStyleAccessEnabled();
         if (endpointOverride != null) {
-            builder.serviceConfiguration(S3Configuration.builder().pathStyleAccessEnabled(true).build())
+            builder.serviceConfiguration(S3Configuration.builder().pathStyleAccessEnabled(pathStyleAccessEnabled).build())
                     .endpointOverride(endpointOverride);
         }
     }
