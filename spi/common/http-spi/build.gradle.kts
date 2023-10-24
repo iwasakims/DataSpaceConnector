@@ -21,6 +21,7 @@ dependencies {
     api(project(":spi:common:core-spi"))
 
     api(libs.okhttp)
+    api(libs.okhttp.logging.interceptor)
     api(libs.failsafe.okhttp)
 }
 

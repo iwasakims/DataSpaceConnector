@@ -77,6 +77,9 @@ public class OkHttpClientFactory {
             context.getMonitor().info("HTTPS enforcement it not enabled, please enable it in a production environment");
         }
 
+        var logging = new okhttp3.logging.HttpLoggingInterceptor();
+        logging.setLevel(okhttp3.logging.HttpLoggingInterceptor.Level.BODY);
+        builder.addInterceptor(logging);
         return builder.build();
     }
 
